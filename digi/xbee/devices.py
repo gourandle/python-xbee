@@ -760,7 +760,7 @@ class AbstractXBeeDevice(object):
             OperationNotSupportedException: if the received data is not an IO mode.
         """
         try:
-            mode = IOMode.get(self.get_parameter(io_line.at_command)[0])
+            mode = IOMode(self.get_parameter(io_line.at_command)[0])
         except ValueError:
             raise OperationNotSupportedException("The received value is not an IO mode.")
         return mode
